@@ -13,7 +13,7 @@ berks install
 https://github.com/opscode/omnibus-chef/blob/master/files/chef-server-cookbooks/chef-server/attributes/default.rb
 
 
-
+net-http-persistent-2.8/lib/net/http/persistent/ssl_reuse.rb:70:in `connect': SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (Faraday::Error::ConnectionFailed)
 
 
 
