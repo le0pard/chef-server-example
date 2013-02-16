@@ -1,0 +1,1 @@
+cookbook 'chef-server', :git => 'git://github.com/opscode-cookbooks/chef-server.git', :ref => 'a3b94e30b599f901eee2eb1af5bc1f4ef011cae4'
