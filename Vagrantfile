@@ -14,9 +14,6 @@ guest_cache_path = "/tmp/vagrant-cache"
 # ensure the cache path exists
 FileUtils.mkdir(host_cache_path) unless File.exist?(host_cache_path)
 
-require 'openssl'
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-
 Vagrant::Config.run do |config|
 
   config.vm.define :chef do |chef_config|
@@ -57,23 +54,5 @@ Vagrant::Config.run do |config|
     
     chef_client_config.ssh.max_tries = 40
     chef_client_config.ssh.timeout   = 120
-      
-    chef_client_config.berkshelf.berksfile_path = Pathname(__FILE__).dirname.join('Berksfile')
-    
-    VAGRANT_CLIENT_JSON = MultiJson.load(Pathname(__FILE__).dirname.join('nodes', 'client_vagrant.json').read)
-    
-    chef_client_config.vm.provision :chef_client do |chef|
-      chef.chef_server_url = "http://10.33.33.33"
-      chef.environment = "development"
-      chef.validation_key_path = Pathname(__FILE__).dirname.join('.chef', 'chef-validation.pem')
-      chef.validation_client_name = "chef-validator"
-      chef.client_key_path = Pathname(__FILE__).dirname.join('.chef', 'admin.pem')
-      VAGRANT_JSON['run_list'].each do |recipe|
-        chef.add_recipe(recipe)
-      end if VAGRANT_CLIENT_JSON['run_list']
-      Dir["#{Pathname(__FILE__).dirname.join('roles')}/*.json"].each do |role|
-        chef.add_role(role)
-      end
-    end
   end
 end
