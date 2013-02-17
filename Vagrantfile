@@ -42,8 +42,8 @@ Vagrant::Config.run do |config|
         chef.add_recipe(recipe)
        end if VAGRANT_JSON['run_list']
 
-       Dir["#{Pathname(__FILE__).dirname.join('roles')}/*.json"].each do |role|
-         chef.add_role(role)
+       Dir.glob(Pathname(__FILE__).dirname.join('roles', '*.json')).each do |role|
+         chef.add_role(Pathname.new(role).basename(".*").to_s)
        end
     end
   end
