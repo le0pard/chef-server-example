@@ -3,10 +3,9 @@
 
 require 'rubygems'
 require 'bundler'
-
 Bundler.require
 require 'multi_json'
-require 'berkshelf/vagrant'
+#require 'berkshelf/vagrant'
 
 host_cache_path = File.expand_path("../.cache", __FILE__)
 guest_cache_path = "/tmp/vagrant-cache"
@@ -27,7 +26,7 @@ Vagrant::Config.run do |config|
     chef_config.ssh.max_tries = 40
     chef_config.ssh.timeout   = 120
       
-    chef_config.berkshelf.berksfile_path = Pathname(__FILE__).dirname.join('Berksfile')
+    #chef_config.berkshelf.berksfile_path = Pathname(__FILE__).dirname.join('Berksfile')
     
     VAGRANT_JSON = MultiJson.load(Pathname(__FILE__).dirname.join('nodes', 'vagrant.json').read)
 
