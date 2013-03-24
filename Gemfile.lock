@@ -1,38 +1,35 @@
 GIT
-  remote: git://github.com/RiotGames/berkshelf.git
-  revision: 99e50e65d486ceb42ec9b1157f1b575d890a48c0
+  remote: git://github.com/RiotGames/berkshelf-vagrant.git
+  revision: f010086cf99ed4e6be83bea5c53feaae1bfe9201
   specs:
-    berkshelf (1.2.0.rc2)
-      activesupport
+    berkshelf-vagrant (1.0.6)
+      activesupport (>= 3.2.0, < 3.2.13)
+      berkshelf (>= 1.3.0)
+      i18n (~> 0.6.0)
+      json (>= 1.5.1, < 1.8.0)
+      net-scp (~> 1.1.0)
+      net-ssh (~> 2.6.6)
+
+GIT
+  remote: git://github.com/RiotGames/berkshelf.git
+  revision: 727d5857be769d4131be5f4a6d56c0fbb1ffee9a
+  specs:
+    berkshelf (1.4.0.rc1)
+      activesupport (>= 3.2.0)
+      celluloid (>= 0.13.0)
       chozo (>= 0.6.1)
       faraday (>= 0.8.5)
       hashie (>= 2.0.2)
       json (>= 1.5.0)
       minitar
-      mixlib-config
-      mixlib-shellout
-      moneta (~> 0.6.0)
+      mixlib-config (~> 1.1)
+      mixlib-shellout (~> 1.1)
       multi_json (~> 1.5)
-      net-ssh-gateway (= 1.1.0)
       retryable
-      ridley (>= 0.8.0)
+      ridley (~> 0.9.0)
       solve (>= 0.4.2)
       thor (~> 0.16.0)
       yajl-ruby
-
-GIT
-  remote: git://github.com/juliandunn/vagrant.git
-  revision: 9e2716ca64e57f51a42af94035756fa07318b365
-  branch: relax-net-ssh-dep
-  specs:
-    vagrant (1.1.0.dev)
-      childprocess (~> 0.3.7)
-      erubis (~> 2.7.0)
-      i18n (~> 0.6.0)
-      json (~> 1.6.6)
-      log4r (~> 1.1.9)
-      net-scp (~> 1.0.4)
-      net-ssh (~> 2.6.5)
 
 GEM
   remote: https://rubygems.org/
@@ -42,8 +39,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.3)
     archive-tar-minitar (0.5.2)
-    celluloid (0.12.4)
-      facter (>= 1.6.12)
+    celluloid (0.13.0)
       timers (>= 1.0.0)
     chef (11.4.0)
       erubis
@@ -59,22 +55,19 @@ GEM
       ohai (>= 0.6.0)
       rest-client (>= 1.0.4, < 1.7.0)
       yajl-ruby (~> 1.1)
-    childprocess (0.3.9)
-      ffi (~> 1.0, >= 1.0.11)
     chozo (0.6.1)
       activesupport (>= 3.2.0)
       hashie (>= 2.0.2)
       multi_json (>= 1.3.0)
     erubis (2.7.0)
-    facter (1.6.17)
     faraday (0.8.6)
       multipart-post (~> 1.1)
-    ffi (1.2.1)
-    hashie (2.0.2)
-    highline (1.6.15)
+    ffi (1.5.0)
+    hashie (2.0.3)
+    highline (1.6.16)
     i18n (0.6.4)
     ipaddress (0.8.0)
-    json (1.6.8)
+    json (1.7.7)
     knife-solo (0.2.0)
       chef (>= 10.12)
       librarian (~> 0.0.20)
@@ -84,7 +77,6 @@ GEM
       chef (>= 0.10)
       highline
       thor (~> 0.15)
-    log4r (1.1.10)
     mime-types (1.21)
     minitar (0.5.4)
     mixlib-authentication (1.3.0)
@@ -93,15 +85,14 @@ GEM
     mixlib-config (1.1.2)
     mixlib-log (1.4.1)
     mixlib-shellout (1.1.0)
-    moneta (0.6.0)
-    multi_json (1.6.1)
+    multi_json (1.7.2)
     multipart-post (1.2.0)
     net-http-persistent (2.8)
-    net-scp (1.0.4)
-      net-ssh (>= 1.99.1)
+    net-scp (1.1.0)
+      net-ssh (>= 2.6.5)
     net-ssh (2.6.6)
-    net-ssh-gateway (1.1.0)
-      net-ssh (>= 1.99.1)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     net-ssh-multi (1.1)
       net-ssh (>= 2.1.4)
       net-ssh-gateway (>= 0.99.0)
@@ -113,14 +104,14 @@ GEM
       mixlib-shellout
       systemu
       yajl-ruby
-    oj (2.0.8)
+    oj (2.0.10)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     retryable (1.3.2)
-    ridley (0.8.1)
+    ridley (0.9.0)
       activesupport (>= 3.2.0)
       addressable
-      celluloid
+      celluloid (~> 0.13.0)
       chozo (>= 0.6.0)
       erubis
       faraday (>= 0.8.4)
@@ -146,9 +137,9 @@ PLATFORMS
 
 DEPENDENCIES
   berkshelf!
-  chef (~> 11.4.0)
-  ffi (~> 1.2.0)
+  berkshelf-vagrant!
+  chef (>= 11.4.0)
+  ffi (>= 1.2.0)
   knife-solo
   multi_json
   oj
-  vagrant!
