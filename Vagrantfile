@@ -11,8 +11,6 @@ FileUtils.mkdir(host_cache_path) unless File.exist?(host_cache_path)
 
 Vagrant.configure("2") do |config|
 
-  config.berkshelf.berksfile_path = Pathname(__FILE__).dirname.join('Berksfile')
-
   config.vm.define :chef do |chef_config|
     chef_config.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--cpus", 2]
@@ -34,10 +32,9 @@ Vagrant.configure("2") do |config|
        chef.data_bags_path = "data_bags"
        chef.provisioning_path = guest_cache_path
 
+       chef.run_list = VAGRANT_JSON.delete('run_list') if VAGRANT_JSON['run_list']
+
        chef.json = VAGRANT_JSON
-       VAGRANT_JSON['run_list'].each do |recipe|
-        chef.add_recipe(recipe)
-       end if VAGRANT_JSON['run_list']
 
        Dir.glob(Pathname(__FILE__).dirname.join('roles', '*.json')).each do |role|
          chef.add_role(Pathname.new(role).basename(".*").to_s)
