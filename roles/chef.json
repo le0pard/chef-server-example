@@ -5,10 +5,19 @@
   "description": "The base role for Chef Server",
   "default_attributes": {
     "chef-server": {
-      "version": "latest",
+      "api_fqdn": "10.33.33.33",
       "configuration": {
-        "chef_server_webui": {
-          "enable": true
+        "chef-server-webui": {
+          "enable": true,
+          "web_ui_admin_user_name": "admin",
+          "web_ui_admin_default_password": "password"
+        },
+        "nginx": {
+          "url": "http://10.33.33.33",
+          "enable_non_ssl": true
+        },
+        "bookshelf": {
+          "url": "http://10.33.33.33"
         }
       }
     }

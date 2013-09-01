@@ -1,1 +1,4 @@
-cookbook 'chef-server', :git => 'git://github.com/opscode-cookbooks/chef-server.git', :ref => 'a3b94e30b599f901eee2eb1af5bc1f4ef011cae4'
+cookbook 'chef-server', :git => 'git://github.com/opscode-cookbooks/chef-server.git', :ref => '18d6e951a2daa1154b7e82c8909bb7245e57ec1b'
+cookbook 'python', :git => 'git@github.com:opscode-cookbooks/python.git', :ref => 'f932b3649683b58f7b0fb06a8b43eab2c6f24486'
+cookbook 'build-essential', :locked_version => '1.3.4'
+cookbook 'yum', :locked_version => '2.1.0'
