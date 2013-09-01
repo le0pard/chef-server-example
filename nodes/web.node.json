@@ -2,6 +2,6 @@
   "chef_type": "node",
   "json_class": "Chef::Node",
   "run_list": [
-    "role[chef]"
+    "recipe[python]"
   ]
 }
