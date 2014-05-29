@@ -1,5 +1,7 @@
 # Chef Server example
 
+**WARNING**: This article can be outdated. Better read my book about chef: [Cooking Infrastructure by Chef](http://chef.leopard.in.ua/)
+
 * [Getting Started with Chef Server. Part 1](http://leopard.in.ua/2013/02/17/chef-server-getting-started-part-1/)
 * [Getting Started with Chef Server. Part 2](http://leopard.in.ua/2013/09/01/chef-server-getting-started-part-2/)
 
